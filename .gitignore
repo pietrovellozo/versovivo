@@ -47,3 +47,5 @@ app.*.map.json
 # Backend
 /backend/**/node_modules/
 /backend/**/*.env
+# Personal learning/study logs (local only)
+RESUMO_APRENDIZADO.md
