@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
                       builder: (context) => const DevocionalPage(),
                     ));
               },
-              child: const Text('Devocionais'),
+              child: const Text('Devocionaissss'),
             ),
             ElevatedButton(
               onPressed: () {
