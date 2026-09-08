@@ -10,14 +10,6 @@ class VerseRepositoryImpl : VerseRepository {
     private val api by lazy { ApiClient.create() }
 
     override suspend fun getVerseOfDay(): Verse = withContext(Dispatchers.IO) {
-        try {
-            api.getVerseOfDay()
-        } catch (e: Exception) {
-            Verse(
-                reference = "Salmos 23:1",
-                text = "O Senhor é o meu pastor; nada me faltará.",
-                themes = listOf("devocional", "confiança")
-            )
-        }
+        api.getVerseOfDay()
     }
 }

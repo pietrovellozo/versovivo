@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.versovivo.app.data.remote.ApiClient
 import com.versovivo.app.data.remote.BibleApiService
+import com.versovivo.app.data.mapper.toDomain
 import com.versovivo.app.domain.model.BibleBook
 import com.versovivo.app.domain.model.BibleVerse
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -54,9 +55,7 @@ class BibleViewModel : ViewModel() {
             _error.value = null
             try {
                 val response = bibleApi.getBooks()
-                val domainBooks = response.map { 
-                    BibleBook(it.name, it.abbrev.pt, it.chapters)
-                }
+                val domainBooks = response.map { it.toDomain() }
                 _books.value = domainBooks
                 if (domainBooks.isNotEmpty()) {
                     _currentBook.value = domainBooks.first()
@@ -98,9 +97,7 @@ class BibleViewModel : ViewModel() {
             try {
                 val response = bibleApi.getChapterVerses(book.abbreviation, chapter)
                 _verses.clear()
-                val domainVerses = response.verses.map { 
-                    BibleVerse(book.name, chapter, it.number, it.text)
-                }
+                val domainVerses = response.toDomain(book)
                 _verses.addAll(domainVerses)
             } catch (e: Exception) {
                 _error.value = "Erro ao carregar versículos: ${e.message}"
