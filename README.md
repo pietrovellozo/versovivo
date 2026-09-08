@@ -359,6 +359,8 @@ O PR da F00 so pode ser aceito quando:
 ## Como executar
 
 1. Abra `android_native` no Android Studio.
-2. Use Gradle 8+ e JDK 17.
-3. Execute em um emulador ou dispositivo Android.
-4. As configuracoes locais, como `local.properties`, nao devem ser commitadas.
+2. Use o JDK 17 ou superior compativel com o Gradle Wrapper.
+3. Execute `gradlew.bat assembleDebug` e `gradlew.bat test` no Windows.
+4. Execute `./gradlew assembleDebug` e `./gradlew test` no Linux/macOS.
+5. Instale o APK de debug em um emulador ou dispositivo Android.
+6. As configuracoes locais, como `local.properties`, nao devem ser commitadas.
