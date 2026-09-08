@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.VersoVivo" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#D4AF37</item>
+        <item name="colorPrimaryVariant">#B98A00</item>
+        <item name="colorOnPrimary">#1B1B1B</item>
+        <item name="android:statusBarColor">#F7F3E8</item>
+        <item name="android:navigationBarColor">#F7F3E8</item>
+    </style>
+</resources>
